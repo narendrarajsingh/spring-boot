@@ -9,5 +9,12 @@ public class WalletApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(WalletApplication.class, args);
 	}
-
+	
+	private boolean result(String test) {
+		if(test.equalsIgnoreCase("string")) {
+			return true;
+		}else {
+			return false;
+		}
+	}
 }
