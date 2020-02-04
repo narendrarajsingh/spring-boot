@@ -1,2 +1,2 @@
-# spring-boot
-Spring Boot projects
+# spring-boot-sample
+Spring Boot Sample Project
