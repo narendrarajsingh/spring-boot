@@ -194,8 +194,7 @@ concat_lines() {
   fi
 }
 
-THIS=$(readlink -f $0) 
-BASE_DIR=${THIS%/*}
+BASE_DIR=`find_maven_basedir "$(pwd)"`
 if [ -z "$BASE_DIR" ]; then
   exit 1;
 fi
