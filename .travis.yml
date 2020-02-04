@@ -1,2 +1,12 @@
 language: java
 jdk: openjdk8
+
+addons:
+  sonarcloud:
+    organization: "narendrarajsingh"
+    token:
+      secure: "kaC9DDEtBizkLHpUKnZvoLhSBdnpbXA7mmLZogKIDE2RVOvAVcjmGI9kgE3DlENrsk1XGurxMIG/MkI2zj+CbYz7+S6NgYWEOHt5YUWEYEVsJ/xh08N2b1gp7R8xwI7tEWg9CTnCty1OFPRPiIsNwKoIs9sBDUP/x/vI5oPEvu3XsQAwh1JHXluN6PLSmTAhp9gBfEtBFI8jnp7pYHgOzRHNJBTeEYtbBOUKQVJxSGYwlB97lUqlZ9K3tII/Fqmmc59RonS/Fk6w6Uxqwviq9Uycur8mjBDX8LK3+HReDyRcfJ9eqXQlmHBshlGzvV7t7yqj3HSXp9BBMe/hD5x8TeU0Xt4NqEzoti3udXZklNQq1pD05Y+hjeJijYAZog7jBO54HAV0+E43xgzcUbAxySNPrZ3cH+KRrzYnMQB7C8kW1EaRrvet/YeYxQF+5HmHvHt/hoPxSgb51B9le5o4qdRjEbkOgICTcpzfaxVbkkznsPuXRPa+Ri6bvHdezxguPEErEMiuVXaQNu8GXOnSmjhJj8Ch4HBpNqN6iVkPLUvDJi8YkRRu/END6M2T4AwyGL5K/UaZ5q/26fxpUu3mC/EzOFpMjvzpKro+u5xtg8amQ42GPLXYgwl6ioamg2bRwL1rMmPd5THT7S3YZopYRxY+MruYY8O/EQocoyTNU5I=" # encrypted value of your token
+
+script:
+  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=narendrarajsingh_spring-boot-sample
