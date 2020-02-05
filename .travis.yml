@@ -17,6 +17,8 @@ script:
   - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=narendrarajsingh_spring-boot-sample
   
 after_success:
+- echo "$DOCKER_PASS"
+- echo "$DOCKER_USER"
 - echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
 - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
 - export IMAGE_NAME=spring-boot-travis-sample
