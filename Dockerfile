@@ -1,6 +1,6 @@
 FROM openjdk8:latest
 VOLUME /tmp
-ADD target/wallet-0.0.1-SNAPSHOT.jar
+ADD target/wallet-0.0.1-SNAPSHOT.jar app.jar
 RUN sh -c 'touch /app.jar'
 ENV JAVA_OPTS="-Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=8787,suspend=n"
 EXPOSE 8080 8787
