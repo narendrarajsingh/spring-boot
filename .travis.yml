@@ -19,7 +19,7 @@ script:
 after_success:
 - docker login -u $DOCKER_USER -p $DOCKER_PASS
 - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
-- export IMAGE_NAME=spring-boot-travis-sample
+- export IMAGE_NAME=$DOCKER_USER/spring-boot-travis-sample
 - docker build -t $IMAGE_NAME:0.1 .
 - docker tag $IMAGE_NAME:0.1 $IMAGE_NAME:$TAG
 - docker push $IMAGE_NAME
